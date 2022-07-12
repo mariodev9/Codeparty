@@ -30,7 +30,6 @@ export const sessionChange = (onChange) => {
     if (user) {
       //   const uid = user.uid;
       const normalizedUser = mapUserFromFirebaseAuthToUser(user);
-      console.log(normalizedUser, "ESTO EXISTE");
       onChange(normalizedUser);
     } else {
       onChange(null);

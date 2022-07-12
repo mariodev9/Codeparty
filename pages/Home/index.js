@@ -29,10 +29,9 @@ export default function Home({ user, name }) {
     <>
       <header>
         <h2>Inicio</h2>
+        <Button onClick={handleOut}>Log Out</Button>
       </header>
       <section>
-        <Button onClick={handleOut}>Log Out</Button>
-
         {timeline.map(({ id, username, avatar, message }) => (
           <Code
             avatar={avatar}
@@ -46,20 +45,23 @@ export default function Home({ user, name }) {
       <nav></nav>
       <style jsx>{`
         header {
+          background: #fff;
           align-items: center;
           border-bottom: 1px solid #ccc;
           height: 49px;
           display: flex;
           position: sticky;
+          justify-content: space-between;
           top: 0;
           width: 100%;
+          padding: 15px;
         }
         h2 {
           font-size: 21px;
           font-weight: 800;
         }
         section {
-          padding-top: 49px;
+          padding-top: 40px;
         }
         nav {
           bottom: 0;
@@ -71,13 +73,4 @@ export default function Home({ user, name }) {
       `}</style>
     </>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      user: "@mariodev9",
-      name: "@luciano.mariotti",
-    },
-  };
 }

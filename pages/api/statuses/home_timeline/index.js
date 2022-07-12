@@ -60,6 +60,39 @@ const timeline = [
     
     * Chrome 79+, Safari 14+, Firefox 68+`,
   },
+  {
+    id: "0",
+    avatar: "https://avatars.githubusercontent.com/u/85541756?v=4",
+
+    username: "wongmjane",
+    message: `Twitter Web App now runs ES6+ for modern browsers*, reducing the polyfill bundle size by 83%
+    
+    (gzipped size went from 16.6 KB down to 2.7 KB!!)
+    
+    * Chrome 79+, Safari 14+, Firefox 68+`,
+  },
+  {
+    id: "0",
+    avatar: "https://avatars.githubusercontent.com/u/85541756?v=4",
+
+    username: "wongmjane",
+    message: `Twitter Web App now runs ES6+ for modern browsers*, reducing the polyfill bundle size by 83%
+    
+    (gzipped size went from 16.6 KB down to 2.7 KB!!)
+    
+    * Chrome 79+, Safari 14+, Firefox 68+`,
+  },
+  {
+    id: "0",
+    avatar: "https://avatars.githubusercontent.com/u/85541756?v=4",
+
+    username: "wongmjane",
+    message: `Twitter Web App now runs ES6+ for modern browsers*, reducing the polyfill bundle size by 83%
+    
+    (gzipped size went from 16.6 KB down to 2.7 KB!!)
+    
+    * Chrome 79+, Safari 14+, Firefox 68+`,
+  },
 ];
 
 export default (req, res) => {
