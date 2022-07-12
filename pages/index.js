@@ -1,9 +1,34 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import Button from "../components/Button";
 // import Link from "next/link";
 import Codeparty from "../components/Icons/Codeparty";
+import { loginWithGitHub, sessionChange, logOut } from "../firebase/client";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const [dev, setDev] = useState(undefined);
+  const router = useRouter();
+
+  useEffect(() => {
+    sessionChange(setDev);
+  }, []);
+
+  useEffect(() => {
+    dev && router.replace("/Home");
+  }, [dev]);
+
+  const handleClick = () => {
+    loginWithGitHub().catch((error) => {
+      console.log(error);
+    });
+  };
+
+  // const handleOut = () => {
+  //   logOut();
+  //   setDev(null);
+  // };
+
   return (
     <>
       <Head>
@@ -17,7 +42,14 @@ export default function Home() {
           Code<span>Party</span>
         </h1>
         <p>Talk about code.</p>
-        <Button>Login with github</Button>
+
+        {/* {dev != null && <Button onClick={handleOut}>Log Out</Button>} */}
+
+        {dev === null && (
+          <Button onClick={handleClick}>Login with github</Button>
+        )}
+
+        {dev === undefined && <h1>Loading</h1>}
       </section>
       <style jsx>
         {`
@@ -41,6 +73,19 @@ export default function Home() {
           p {
             margin-top: -13px;
             font-size: 0.8rem;
+          }
+
+          img {
+            width: 60px;
+            border-radius: 50%;
+          }
+
+          .profile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
           }
         `}
       </style>
