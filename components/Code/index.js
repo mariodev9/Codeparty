@@ -1,15 +1,28 @@
 import { Avatar } from "../Avatar";
+import useTimeAgo from "../../hooks/useTimeAgo";
 
-export default function Code({ avatar, username, message, id }) {
+export default function Code({
+  id,
+  avatar,
+  userName,
+  content,
+  createdAt,
+  userId,
+}) {
+  const timeago = useTimeAgo(createdAt);
+
   return (
     <>
       <article>
         <div>
-          <Avatar alt={username} src={avatar} />
+          <Avatar alt={userName} src={avatar} />
         </div>
         <section>
-          <strong>{username}</strong>
-          <p>{message}</p>
+          <header>
+            <strong>{userName}</strong>
+            <date>{timeago}</date>
+          </header>
+          <p>{content}</p>
         </section>
       </article>
       <style jsx>{`
@@ -24,6 +37,11 @@ export default function Code({ avatar, username, message, id }) {
         p {
           line-height: 1.3125;
           margin: 0;
+        }
+
+        date {
+          color: #828da9;
+          padding-left: 8px;
         }
       `}</style>
     </>

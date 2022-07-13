@@ -3,11 +3,14 @@ import Code from "../../components/Code";
 import { logOut } from "../../firebase/client";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
+import useUser from "../../hooks/useUser";
+import { fetchLatestCodes } from "../../firebase/client";
 
-export default function Home({ user, name }) {
+export default function Home() {
   const [timeline, setTimeline] = useState([]);
   const [session, onSession] = useState(true);
 
+  const user = useUser();
   const router = useRouter();
 
   const handleOut = () => {
@@ -20,10 +23,8 @@ export default function Home({ user, name }) {
   }, [session]);
 
   useEffect(() => {
-    fetch("/api/statuses/home_timeline")
-      .then((res) => res.json())
-      .then(setTimeline);
-  }, []);
+    user && fetchLatestCodes().then(setTimeline);
+  }, [user]);
 
   return (
     <>
@@ -31,17 +32,25 @@ export default function Home({ user, name }) {
         <h2>Inicio</h2>
         <Button onClick={handleOut}>Log Out</Button>
       </header>
+      {/* <section className="hola">
+      SECTION QUE VA A TENER LA WEB PARA DESKTOP
+        <div>asdasdasd</div> */}
       <section>
-        {timeline.map(({ id, username, avatar, message }) => (
-          <Code
-            avatar={avatar}
-            id={id}
-            key={id}
-            message={message}
-            username={username}
-          />
-        ))}
+        {timeline.map(
+          ({ id, userName, avatar, content, createdAt, userId }) => (
+            <Code
+              avatar={avatar}
+              id={id}
+              key={id}
+              content={content}
+              userName={userName}
+              createdAt={createdAt}
+              userId={userId}
+            />
+          )
+        )}
       </section>
+      {/* </section> */}
       <nav></nav>
       <style jsx>{`
         header {
@@ -69,6 +78,15 @@ export default function Home({ user, name }) {
           height: 49px;
           position: sticky;
           width: 100%;
+        }
+
+        .hola {
+          display: flex;
+          flex-direction: row;
+        }
+
+        body :global(body) {
+          background: #564565;
         }
       `}</style>
     </>
