@@ -4,6 +4,7 @@ import Button from "../../../components/Button";
 import useUser from "../../../hooks/useUser";
 import { addCode } from "../../../firebase/client";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,
@@ -41,6 +42,9 @@ export default function Codeparty() {
 
   return (
     <>
+      <Head>
+        <title>Write / Codeparty</title>
+      </Head>
       <form onSubmit={handleSubmit}>
         <textarea
           placeholder="Que estas pensando?"

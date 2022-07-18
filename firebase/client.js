@@ -19,6 +19,13 @@ import {
   orderBy,
 } from "firebase/firestore";
 
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+
 // Config Firebase App
 const firebaseConfig = {
   apiKey: "AIzaSyBcdQyjrnf7GaX0bcaZ5ZY26rzalMGWnAQ",
@@ -31,10 +38,11 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
 
-// Connect DataBase service
+// Connect Services
+const auth = getAuth();
 const firestore = getFirestore(app);
+const storage = getStorage(app);
 
 // const analytics = getAnalytics(app);
 
@@ -75,15 +83,19 @@ export const logOut = () => {
 };
 
 export const addCode = ({ avatar, content, userId, userName }) => {
-  const docRef = addDoc(collection(firestore, "codes"), {
-    avatar,
-    content,
-    userId,
-    userName,
-    createdAt: Timestamp.fromDate(new Date()),
-    likesCount: 0,
-    sharedCount: 0,
-  });
+  try {
+    const docRef = addDoc(collection(firestore, "codes"), {
+      avatar,
+      content,
+      userId,
+      userName,
+      createdAt: Timestamp.fromDate(new Date()),
+      likesCount: 0,
+      sharedCount: 0,
+    });
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
 };
 
 export const fetchLatestCodes = async () => {

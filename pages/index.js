@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Button from "../components/Button";
-// import Link from "next/link";
-import Codeparty from "../components/Icons/Codeparty";
+import CodeParty from "../components/Icons/Codeparty";
 import { loginWithGitHub, sessionChange, logOut } from "../firebase/client";
 import { useRouter } from "next/router";
+import { useTheme } from "styled-components";
 
 export default function Home() {
   const [dev, setDev] = useState(undefined);
   const router = useRouter();
+  const theme = useTheme();
 
   useEffect(() => {
     sessionChange(setDev);
@@ -24,11 +25,6 @@ export default function Home() {
     });
   };
 
-  // const handleOut = () => {
-  //   logOut();
-  //   setDev(null);
-  // };
-
   return (
     <>
       <Head>
@@ -37,19 +33,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
-        <Codeparty height={90} width={110} />
+        <CodeParty height={90} width={110} color={theme.logo} />
         <h1>
           Code<span>Party</span>
         </h1>
         <p>Talk about code.</p>
 
         {/* {dev != null && <Button onClick={handleOut}>Log Out</Button>} */}
+        <div className="asd">
+          {dev === null && (
+            <Button onClick={handleClick}>Login with github</Button>
+          )}
 
-        {dev === null && (
-          <Button onClick={handleClick}>Login with github</Button>
-        )}
-
-        {dev === undefined && <h1>Loading</h1>}
+          {dev === undefined && <h2>Loading</h2>}
+        </div>
       </section>
       <style jsx>
         {`
@@ -71,7 +68,7 @@ export default function Home() {
           }
 
           p {
-            margin-top: -13px;
+            margin-top: 13px;
             font-size: 0.8rem;
           }
 
@@ -86,6 +83,11 @@ export default function Home() {
             justify-content: center;
             align-items: center;
             padding-top: 20px;
+          }
+
+          .asd {
+            margin-top: 15px;
+            height: 50px;
           }
         `}
       </style>

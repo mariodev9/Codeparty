@@ -27,7 +27,7 @@ export default function Code({
       </article>
       <style jsx>{`
         article {
-          border-bottom: 2px solid #eaf7ff;
+          border-bottom: 1px solid #828da9;
           display: flex;
           padding: 10px 15px;
         }
@@ -38,7 +38,6 @@ export default function Code({
           line-height: 1.3125;
           margin: 0;
         }
-
         date {
           color: #828da9;
           padding-left: 8px;
