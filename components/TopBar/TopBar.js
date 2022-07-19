@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 import { ThemeContext } from "../../context/ThemeStore";
+import Ligth from "../Icons/Ligth";
+import Dark from "../Icons/Dark";
 
 const TopBar = () => {
   const { theme, switchTheme } = useContext(ThemeContext);
@@ -8,9 +9,13 @@ const TopBar = () => {
   return (
     <>
       {theme === "dark" ? (
-        <button onClick={() => switchTheme("light")}>Cambiar a dark</button>
+        <div onClick={() => switchTheme("light")}>
+          <Dark />
+        </div>
       ) : (
-        <button onClick={() => switchTheme("dark")}>Cambiar a ligth</button>
+        <div onClick={() => switchTheme("dark")}>
+          <Ligth />
+        </div>
       )}
     </>
   );

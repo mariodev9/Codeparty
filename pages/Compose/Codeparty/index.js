@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../../components/Button";
 import useUser from "../../../hooks/useUser";
 import { addCode } from "../../../firebase/client";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { uploadImage } from "../../../firebase/client";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,
@@ -16,8 +17,15 @@ const COMPOSE_STATES = {
 export default function Codeparty() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(COMPOSE_STATES.USER_NOT_KNOWN);
+  const [file, setFile] = useState("");
+  const [img, setImg] = useState("");
+
   const router = useRouter();
   const user = useUser();
+
+  useEffect(() => {
+    file && uploadImage(file, setImg);
+  }, [file]);
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -27,11 +35,13 @@ export default function Codeparty() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setStatus(COMPOSE_STATES.LOADING);
+
     addCode({
       avatar: user.avatar,
       content: message,
       userId: user.userId,
       userName: user.name,
+      img: img,
     });
 
     router.push("/Home");
@@ -54,7 +64,16 @@ export default function Codeparty() {
         <div>
           <Button disabled={isButtonDisabled}> Share </Button>
         </div>
+        <input
+          type="file"
+          name="Agregar foto"
+          id=""
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+          }}
+        />
       </form>
+      {img && <img src={img}></img>}
       <style jsx>{`
         div {
           padding: 15px;

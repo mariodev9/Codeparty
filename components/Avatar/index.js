@@ -1,16 +1,15 @@
 import React from "react";
 
-export const Avatar = ({ src, alt, withText }) => {
+export const Avatar = ({ src, alt, withText, width }) => {
   return (
     <>
       <div className="profile">
-        <img src={src} />
+        <img src={src} width={width} />
         {withText && <p>{alt}</p>}
       </div>
       <style jsx>
         {`
           img {
-            width: 49px;
             border-radius: 50%;
           }
         `}

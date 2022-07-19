@@ -5,6 +5,7 @@ export default function Code({
   id,
   avatar,
   userName,
+  img,
   content,
   createdAt,
   userId,
@@ -15,19 +16,21 @@ export default function Code({
     <>
       <article>
         <div>
-          <Avatar alt={userName} src={avatar} />
+          <Avatar alt={userName} src={avatar} width="49px" />
         </div>
         <section>
           <header>
             <strong>{userName}</strong>
-            <date>{timeago}</date>
+            <date className="timeago">{timeago}</date>
           </header>
           <p>{content}</p>
+          {img && <img src={img} alt="" srcset="" />}
         </section>
       </article>
+
       <style jsx>{`
         article {
-          border-bottom: 1px solid #828da9;
+          border-bottom: 1px solid #c4c9d6;
           display: flex;
           padding: 10px 15px;
         }
@@ -38,9 +41,16 @@ export default function Code({
           line-height: 1.3125;
           margin: 0;
         }
-        date {
+        .timeago {
           color: #828da9;
           padding-left: 8px;
+        }
+
+        img {
+          border-radius: 10px;
+          height: auto;
+          margin-top: 10px;
+          width: 100%;
         }
       `}</style>
     </>

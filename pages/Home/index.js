@@ -23,8 +23,6 @@ export default function Home() {
   const user = useUser();
   const router = useRouter();
 
-  console.log(theme.text, "EL COLOR DEL TEXTO");
-
   const handleOut = () => {
     logOut();
     onSession(false);
@@ -56,14 +54,10 @@ export default function Home() {
 
   const Nav = styled.div`
     background-color: ${(props) => props.theme.background};
-    bottom: 0;
-    height: 49px;
     position: sticky;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-top: solid 1px #c4c9d6;
+    bottom: 0;
+    height: 49px;
   `;
 
   return (
@@ -73,48 +67,53 @@ export default function Home() {
           <title>Inicio / Codeparty</title>
         </Head>
         <Header>
-          <div>{user && <Avatar src={user?.avatar} alt={user?.name} />}</div>
+          <div className="avatar-profile">
+            {user && (
+              <Avatar src={user?.avatar} alt={user?.name} width="34px" />
+            )}
+          </div>
           <CodeParty height={50} width={60} color={theme.logo} />
-          {/* HACER LO MISMO PARA LOS LOGOS DEL NAV */}
-          <Button onClick={handleOut}>Log Out</Button>
+          {/* <Button onClick={handleOut}>Log Out</Button> */}
           <TopBar />
         </Header>
-        {/* <section className="hola">
-      SECTION QUE VA A TENER LA WEB PARA DESKTOP
-        <div>SideNav</div> */}
+
         <section>
           {timeline.map(
-            ({ id, userName, avatar, content, createdAt, userId }) => (
+            ({ id, userName, avatar, content, createdAt, userId, img }) => (
               <Code
                 avatar={avatar}
                 id={id}
                 key={id}
                 content={content}
                 userName={userName}
+                img={img}
                 createdAt={createdAt}
                 userId={userId}
               />
             )
           )}
         </section>
-        {/* </section> */}
-        <Nav>
-          <Link href={"/Home"}>
-            <a>
-              <HomeIcon color={theme.logo} />
-            </a>
-          </Link>
-          <Link href={"/Home"}>
-            <a>
-              <Search />
-            </a>
-          </Link>
-          <Link href={"/Compose/Codeparty"}>
-            <a>
-              <Write />
-            </a>
-          </Link>
-        </Nav>
+        {timeline.length != 0 && (
+          <Nav>
+            <nav>
+              <Link href={"/Home"}>
+                <a>
+                  <HomeIcon color={theme.logo} />
+                </a>
+              </Link>
+              <Link href={"/Home"}>
+                <a>
+                  <Search color={theme.logo} />
+                </a>
+              </Link>
+              <Link href={"/Compose/Codeparty"}>
+                <a>
+                  <Write color={theme.logo} />
+                </a>
+              </Link>
+            </nav>
+          </Nav>
+        )}
       </Container>
       <style jsx>{`
         header {
@@ -140,10 +139,9 @@ export default function Home() {
         nav {
           background: #fff;
           bottom: 0;
-          border-top: 1px solid #eee;
+          border-top: 1px solid #c4c9d6;
           display: flex;
           height: 49px;
-          position: sticky;
           width: 100%;
         }
 

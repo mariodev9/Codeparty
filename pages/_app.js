@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <ThemeStore>
         <Theme>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </Theme>
       </ThemeStore>
     </>

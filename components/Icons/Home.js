@@ -1,8 +1,8 @@
 export default function HomeIcon(props) {
   return (
     <svg
-      height={31}
-      width={31}
+      height="21"
+      width="21"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 330.242 330.242"
       xmlSpace="preserve"
