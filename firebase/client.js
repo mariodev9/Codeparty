@@ -83,7 +83,6 @@ export const logOut = () => {
 };
 
 export const addCode = ({ avatar, content, userId, userName, img }) => {
-  console.log(img, "Esta es la imagen que le llega a Addcode");
   try {
     const docRef = addDoc(collection(firestore, "codes"), {
       avatar,

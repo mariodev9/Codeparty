@@ -37,10 +37,10 @@ export default function Home() {
   }, [user]);
 
   // ver con useTheme hook
+  // background-color: ${(props) => props.theme.background};
+
   const Container = styled.div`
-    background-color: ${(props) => props.theme.background};
     bottom: 0;
-    border-top: 1px solid #eee;
     display: flex;
     height: 49px;
     position: sticky;
@@ -48,12 +48,11 @@ export default function Home() {
     flex-direction: column;
   `;
 
-  const Header = styled.header`
-    background-color: ${(props) => props.theme.background};
-  `;
+  const Header = styled.header``;
+  // background-color: ${(props) => props.theme.background};
 
+  // background-color: ${(props) => props.theme.background};
   const Nav = styled.div`
-    background-color: ${(props) => props.theme.background};
     position: sticky;
     width: 100%;
     bottom: 0;
@@ -137,7 +136,6 @@ export default function Home() {
           flex: 1;
         }
         nav {
-          background: #fff;
           bottom: 0;
           border-top: 1px solid #c4c9d6;
           display: flex;

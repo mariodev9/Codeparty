@@ -21,7 +21,7 @@ export default function Code({
         <section>
           <header>
             <strong>{userName}</strong>
-            <date className="timeago">{timeago}</date>
+            <time className="timeago">{timeago}</time>
           </header>
           <p>{content}</p>
           {img && <img src={img} alt="" srcset="" />}
