@@ -4,7 +4,7 @@ const serviceAccount = require("./firebase-keys.json");
 
 !firebaseAdmin.apps.length
   ? firebaseAdmin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
+      credential: firebaseAdmin.credential.cert(serviceAccount),
     })
   : firebaseAdmin.app();
 
