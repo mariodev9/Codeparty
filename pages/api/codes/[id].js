@@ -1,4 +1,5 @@
 import { firestore } from "../../../firebase/admin";
+
 export default (request, response) => {
   const { query } = request;
   const { id } = query;

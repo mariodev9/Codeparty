@@ -17,6 +17,7 @@ import {
   addDoc,
   doc,
   orderBy,
+  onSnapshot,
 } from "firebase/firestore";
 
 import {
@@ -99,21 +100,33 @@ export const addCode = ({ avatar, content, userId, userName, img }) => {
   }
 };
 
-export const fetchLatestCodes = async () => {
+// export const fetchLatestCodes = async () => {
+//   const q = query(collection(firestore, "codes"), orderBy("createdAt", "desc"));
+//   const querySnap = await getDocs(q);
+//   const { docs } = querySnap;
+//   return docs.map(mapCodeFromFirebaseToDevitObject);
+// };
+
+export const listenLatestCodes = async (callback) => {
   const q = query(collection(firestore, "codes"), orderBy("createdAt", "desc"));
   const querySnap = await getDocs(q);
-  const { docs } = querySnap;
-  return docs.map((doc) => {
-    const data = doc.data();
-    const id = doc.id;
-    const { createdAt } = data;
-
-    return {
-      ...data,
-      id,
-      createdAt: +createdAt.toDate(),
-    };
+  onSnapshot(q, (querySnap) => {
+    const { docs } = querySnap;
+    const newCodes = docs.map(mapCodeFromFirebaseToDevitObject);
+    callback(newCodes);
   });
+};
+
+const mapCodeFromFirebaseToDevitObject = (doc) => {
+  const data = doc.data();
+  const id = doc.id;
+  const { createdAt } = data;
+
+  return {
+    ...data,
+    id,
+    createdAt: +createdAt.toDate(),
+  };
 };
 
 export const uploadImage = (file, onChange) => {

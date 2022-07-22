@@ -10,8 +10,8 @@ export default function Dark(props) {
         fill="none"
         fill-rule="evenodd"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(-210 -1)"
       >
         <g

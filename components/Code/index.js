@@ -1,5 +1,7 @@
 import { Avatar } from "../Avatar";
 import useTimeAgo from "../../hooks/useTimeAgo";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Code({
   id,
@@ -11,20 +13,29 @@ export default function Code({
   userId,
 }) {
   const timeago = useTimeAgo(createdAt);
+  const router = useRouter();
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push(`/status/${id}`);
+  };
   return (
     <>
-      <article>
+      <article onClick={handleClick}>
         <div>
           <Avatar alt={userName} src={avatar} width="49px" />
         </div>
         <section>
           <header>
             <strong>{userName}</strong>
-            <time className="timeago">{timeago}</time>
+            <Link href={`/status/${id}`}>
+              <a>
+                <time className="timeago">{timeago}</time>
+              </a>
+            </Link>
           </header>
           <p>{content}</p>
-          {img && <img src={img} alt="" srcset="" />}
+          {img && <img src={img} alt="" srcSet="" />}
         </section>
       </article>
 
@@ -34,6 +45,11 @@ export default function Code({
           display: flex;
           padding: 10px 15px;
         }
+
+        article:hover {
+          cursor: pointer;
+        }
+
         div {
           padding-right: 10px;
         }
@@ -41,6 +57,7 @@ export default function Code({
           line-height: 1.3125;
           margin: 0;
         }
+
         .timeago {
           color: #828da9;
           padding-left: 8px;
@@ -51,6 +68,11 @@ export default function Code({
           height: auto;
           margin-top: 10px;
           width: 100%;
+        }
+
+        a:hover {
+          text-decoration: underline;
+          color: #828da9;
         }
       `}</style>
     </>

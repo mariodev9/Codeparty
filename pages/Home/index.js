@@ -14,6 +14,26 @@ import Search from "../../components/Icons/Search";
 import TopBar from "../../components/TopBar/TopBar";
 import Link from "next/link";
 import Head from "next/head";
+import { listenLatestCodes } from "../../firebase/client";
+
+const Container = styled.div`
+  bottom: 0;
+  display: flex;
+  height: 49px;
+  position: sticky;
+  width: 100%;
+  flex-direction: column;
+`;
+
+// background-color: ${(props) => props.theme.background};
+
+// background-color: ${(props) => props.theme.background};
+const Nav = styled.div`
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  height: 49px;
+`;
 
 export default function Home() {
   const [timeline, setTimeline] = useState([]);
@@ -33,31 +53,13 @@ export default function Home() {
   }, [session]);
 
   useEffect(() => {
-    user && fetchLatestCodes().then(setTimeline);
+    if (user) {
+      listenLatestCodes(setTimeline);
+    }
   }, [user]);
 
   // ver con useTheme hook
   // background-color: ${(props) => props.theme.background};
-
-  const Container = styled.div`
-    bottom: 0;
-    display: flex;
-    height: 49px;
-    position: sticky;
-    width: 100%;
-    flex-direction: column;
-  `;
-
-  const Header = styled.header``;
-  // background-color: ${(props) => props.theme.background};
-
-  // background-color: ${(props) => props.theme.background};
-  const Nav = styled.div`
-    position: sticky;
-    width: 100%;
-    bottom: 0;
-    height: 49px;
-  `;
 
   return (
     <>
@@ -65,7 +67,7 @@ export default function Home() {
         <Head>
           <title>Inicio / Codeparty</title>
         </Head>
-        <Header>
+        <header>
           <div className="avatar-profile">
             {user && (
               <Avatar src={user?.avatar} alt={user?.name} width="34px" />
@@ -74,7 +76,7 @@ export default function Home() {
           <CodeParty height={50} width={60} color={theme.logo} />
           {/* <Button onClick={handleOut}>Log Out</Button> */}
           <TopBar />
-        </Header>
+        </header>
 
         <section>
           {timeline.map(
