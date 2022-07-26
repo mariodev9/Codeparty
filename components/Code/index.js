@@ -1,5 +1,5 @@
 import { Avatar } from "../Avatar";
-import useTimeAgo from "../../hooks/useTimeAgo";
+import useTimeAgo from "../../hooks/useTimeago";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
