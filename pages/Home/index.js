@@ -147,7 +147,6 @@ export default function Home() {
         section {
           padding-top: 40px;
           flex: 1;
-          border-left: solid 1px #828da9;
         }
 
         nav {
@@ -169,7 +168,7 @@ export default function Home() {
         .sidenav {
           border-radius: 20px;
           min-width: 25%;
-          height: 500px;
+          height: 100vh;
           position: sticky;
           top: 20px;
         }
@@ -180,6 +179,9 @@ export default function Home() {
           margin: 5px 0px;
         }
         @media screen and (max-width: 642px) {
+          section {
+            border-left: solid 1px #828da9;
+          }
           .sidenav {
             display: none;
           }
