@@ -3,7 +3,7 @@ export default function Ligth(props) {
     <svg
       height="25"
       viewBox="0 0 21 21"
-      width="25"
+      width="21"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

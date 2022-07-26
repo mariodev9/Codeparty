@@ -4,7 +4,7 @@ import { ThemeContext } from "./ThemeStore";
 
 const themes = {
   dark: {
-    background: "#191C25",
+    background: "#100F0F",
     title: "#6495ed",
     text: "#FEFEFE",
     logo: "#fff",

@@ -73,7 +73,7 @@ export default function Codeparty() {
           }}
         />
       </form>
-      {img && <img src={img}></img>}
+      {img && <img src={img} />}
       <style jsx>{`
         div {
           padding: 15px;

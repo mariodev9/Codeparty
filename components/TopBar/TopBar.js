@@ -17,6 +17,13 @@ const TopBar = () => {
           <Ligth />
         </div>
       )}
+      <style jsx>
+        {`
+          div:hover {
+            cursor: pointer;
+          }
+        `}
+      </style>
     </>
   );
 };
