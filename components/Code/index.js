@@ -2,7 +2,6 @@ import { Avatar } from "../Avatar";
 import useTimeAgo from "../../hooks/useTimeAgo";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
 export default function Code({
   id,
@@ -36,7 +35,7 @@ export default function Code({
             </Link>
           </header>
           <p>{content}</p>
-          {img && <img src={img} alt="Description photo"  />}
+          {img && <img src={img} alt="Description photo" />}
         </section>
       </article>
 
