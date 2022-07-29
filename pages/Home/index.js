@@ -26,12 +26,9 @@ const Container = styled.div`
 
 // background-color: ${(props) => props.theme.background};
 
-// background-color: ${(props) => props.theme.background};
-
 export default function Home() {
   const [timeline, setTimeline] = useState([]);
   const [session, onSession] = useState(true);
-
   const theme = useTheme();
   const user = useUser();
   const router = useRouter();
@@ -103,21 +100,23 @@ export default function Home() {
         </div>
         {timeline.length != 0 && (
           <nav>
-            <Link href={"/Home"}>
-              <a>
-                <HomeIcon color={theme.logo} />
-              </a>
-            </Link>
-            <Link href={"/Home"}>
-              <a>
-                <Search color={theme.logo} />
-              </a>
-            </Link>
-            <Link href={"/Compose/Codeparty"}>
-              <a>
-                <Write color={theme.logo} />
-              </a>
-            </Link>
+            <div className="nav-container">
+              <Link href={"/Home"}>
+                <a>
+                  <HomeIcon color={theme.logo} />
+                </a>
+              </Link>
+              <Link href={"/Home"}>
+                <a>
+                  <Search color={theme.logo} />
+                </a>
+              </Link>
+              <Link href={"/Compose/Codeparty"}>
+                <a>
+                  <Write color={theme.logo} />
+                </a>
+              </Link>
+            </div>
           </nav>
         )}
       </Container>
@@ -132,6 +131,7 @@ export default function Home() {
           top: 0;
           width: 100%;
           padding: 40px;
+          background-color: ${theme.background};
         }
 
         .main {
@@ -151,18 +151,23 @@ export default function Home() {
 
         nav {
           bottom: 0;
-          border-top: 1px solid #828da9;
           display: flex;
           position: sticky;
           width: 100%;
         }
-
+        .nav-container {
+          display: flex;
+          width: 100%;
+          background-color: #12263a !important;
+          border-radius: 50px;
+        }
         nav a {
           align-items: center;
           display: flex;
           flex: 1 1 auto;
           height: 60px;
           justify-content: center;
+          border-radius: 40px;
         }
 
         .sidenav {
@@ -179,15 +184,15 @@ export default function Home() {
           margin: 5px 0px;
         }
         @media screen and (max-width: 642px) {
-          section {
-            border-left: solid 1px #828da9;
-          }
           .sidenav {
             display: none;
           }
         }
 
         @media screen and (min-width: 642px) {
+          section {
+            border-left: solid 1px #828da9;
+          }
           nav {
             display: none;
           }

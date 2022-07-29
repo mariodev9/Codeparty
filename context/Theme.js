@@ -18,10 +18,13 @@ const themes = {
 };
 
 const GlobalStyle = createGlobalStyle`
+body {
+  background-color: ${(props) => props.theme.background};
+
+}
     * {
       margin: 0;
       padding: 0;
-      background-color: ${(props) => props.theme.background};
       color: ${(props) => props.theme.text};
     }
   `;
