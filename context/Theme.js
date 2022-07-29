@@ -18,10 +18,9 @@ const themes = {
 };
 
 const GlobalStyle = createGlobalStyle`
-body {
-  background-color: ${(props) => props.theme.background};
-
-}
+    body {
+      background-color: ${(props) => props.theme.background};
+    }
     * {
       margin: 0;
       padding: 0;
