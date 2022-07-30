@@ -8,7 +8,6 @@ import Head from "next/head";
 import { uploadImage } from "../../../firebase/client";
 import { useTheme } from "styled-components";
 import Nav from "../../../components/Nav";
-import Sidenav from "../../../components/Sidenav";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,

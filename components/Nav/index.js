@@ -39,13 +39,15 @@ export default function Nav() {
           display: flex;
           width: 100%;
           background-color: ${theme.nav};
-          border-radius: 50px;
+          border-top-right-radius: 30px;
+          border-top-left-radius: 30px;
+          border-top: solid #212c3a 1px;
         }
         nav a {
           align-items: center;
           display: flex;
           flex: 1 1 auto;
-          height: 60px;
+          height: 50px;
           justify-content: center;
           border-radius: 40px;
         }
