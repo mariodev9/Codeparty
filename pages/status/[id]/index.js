@@ -1,16 +1,24 @@
 import React from "react";
 import Code from "../../../components/Code";
+import Sidenav from "../../../components/Sidenav";
 // import { firestore } from "../../../firebase/admin";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function CodePage(props) {
-  // const router = useRouter();
-  // if (router.isFallback) return <h1>Cargando...</h1>;
+  const router = useRouter();
+  if (router.isFallback) return <h1>Cargando...</h1>;
 
   return (
     <>
-      <Code {...props} />
-      <style jsx>{``}</style>
+      <div className="main">
+        <Sidenav />
+        <Code {...props} />
+      </div>
+      <style jsx>{`
+        .main {
+          display: flex;
+        }
+      `}</style>
     </>
   );
 }

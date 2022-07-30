@@ -8,12 +8,14 @@ const themes = {
     title: "#6495ed",
     text: "#FEFEFE",
     logo: "#fff",
+    nav: "#1B2430",
   },
   light: {
     background: "#fff",
     title: "#ff6347",
     text: "#000",
     logo: "#082032",
+    nav: "#C4DDFF",
   },
 };
 

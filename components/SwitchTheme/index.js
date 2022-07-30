@@ -3,7 +3,7 @@ import { ThemeContext } from "../../context/ThemeStore";
 import Ligth from "../Icons/Ligth";
 import Dark from "../Icons/Dark";
 
-const TopBar = () => {
+const SwitchTheme = () => {
   const { theme, switchTheme } = useContext(ThemeContext);
 
   return (
@@ -28,4 +28,4 @@ const TopBar = () => {
   );
 };
 
-export default TopBar;
+export default SwitchTheme;

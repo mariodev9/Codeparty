@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { uploadImage } from "../../../firebase/client";
 import { useTheme } from "styled-components";
+import Nav from "../../../components/Nav";
+import Sidenav from "../../../components/Sidenav";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,
@@ -25,7 +27,6 @@ export default function Codeparty() {
   const router = useRouter();
   const user = useUser();
 
-  console.log(theme);
   useEffect(() => {
     file && uploadImage(file, setImg);
   }, [file]);
@@ -64,7 +65,6 @@ export default function Codeparty() {
       <Head>
         <title>Write / Codeparty</title>
       </Head>
-
       <form onSubmit={handleSubmit}>
         <div className="code-container">
           <textarea
@@ -88,18 +88,26 @@ export default function Codeparty() {
         <input
           type="file"
           name="Add photo"
-          id=""
+          id="file-input"
           onChange={(e) => {
             setFile(e.target.files[0]);
           }}
         />
+        <label htmlFor="file-input">
+          <p>Icono de foto</p>
+        </label>
       </form>
-
+      <Nav />
       <style jsx>{`
+        .main {
+          display: flex;
+          flex-direction: row;
+        }
         form {
           display: flex;
           flex-direction: column;
           margin: 15px 5px;
+          height: 90vh;
         }
         .buttons-container {
           margin: 20px 0px;
@@ -141,6 +149,11 @@ export default function Codeparty() {
           top: 25px;
           background-color: #000;
         }
+
+        #file-input {
+          display: none;
+        }
+
         @media screen and (max-width: 642px) {
           .buttons-container {
             order: 1;
@@ -149,7 +162,7 @@ export default function Codeparty() {
             order: 2;
           }
 
-          input {
+          label {
             order: 3;
           }
         }

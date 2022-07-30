@@ -7,22 +7,11 @@ import Code from "../../components/Code";
 import styled from "styled-components";
 import { Avatar } from "../../components/Avatar";
 import { useTheme } from "styled-components";
-import HomeIcon from "../../components/Icons/Home";
 import CodeParty from "../../components/Icons/Codeparty";
-import Write from "../../components/Icons/Write";
-import Search from "../../components/Icons/Search";
-import TopBar from "../../components/TopBar/TopBar";
-import Link from "next/link";
+import SwitchTheme from "../../components/SwitchTheme";
 import Head from "next/head";
-
-const Container = styled.div`
-  bottom: 0;
-  display: flex;
-  height: 49px;
-  position: sticky;
-  width: 100%;
-  flex-direction: column;
-`;
+import Nav from "../../components/Nav";
+import Sidenav from "../../components/Sidenav";
 
 // background-color: ${(props) => props.theme.background};
 
@@ -48,12 +37,9 @@ export default function Home() {
     }
   }, [user]);
 
-  // ver con useTheme hook
-  // background-color: ${(props) => props.theme.background};
-
   return (
     <>
-      <Container>
+      <div className="container">
         <Head>
           <title>Inicio / Codeparty</title>
           <meta
@@ -61,6 +47,7 @@ export default function Home() {
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
+
         <header>
           <div className="avatar-profile">
             {user && (
@@ -69,18 +56,11 @@ export default function Home() {
           </div>
           <CodeParty height={50} width={60} color={theme.logo} />
           <Button onClick={handleOut}>Log Out</Button>
-          <TopBar />
+          <SwitchTheme />
         </header>
+
         <div className="main">
-          <div className="sidenav">
-            <ol>
-              <li>Inicio</li>
-              <li>Guardados</li>
-              <li>Perfil</li>
-              <li>Codear</li>
-              <li>Cerrar sesion</li>
-            </ol>
-          </div>
+          <Sidenav />
           <section>
             {timeline.map(
               ({ id, userName, avatar, content, createdAt, userId, img }) => (
@@ -98,28 +78,8 @@ export default function Home() {
             )}
           </section>
         </div>
-        {timeline.length != 0 && (
-          <nav>
-            <div className="nav-container">
-              <Link href={"/Home"}>
-                <a>
-                  <HomeIcon color={theme.logo} />
-                </a>
-              </Link>
-              <Link href={"/Home"}>
-                <a>
-                  <Search color={theme.logo} />
-                </a>
-              </Link>
-              <Link href={"/Compose/Codeparty"}>
-                <a>
-                  <Write color={theme.logo} />
-                </a>
-              </Link>
-            </div>
-          </nav>
-        )}
-      </Container>
+        {timeline.length != 0 && <Nav />}
+      </div>
       <style jsx>{`
         header {
           align-items: center;
@@ -132,6 +92,12 @@ export default function Home() {
           width: 100%;
           padding: 40px;
           background-color: ${theme.background};
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          position: sticky;
         }
 
         .main {
@@ -149,40 +115,6 @@ export default function Home() {
           flex: 1;
         }
 
-        nav {
-          bottom: 0;
-          display: flex;
-          position: sticky;
-          width: 100%;
-        }
-        .nav-container {
-          display: flex;
-          width: 100%;
-          background-color: #12263a !important;
-          border-radius: 50px;
-        }
-        nav a {
-          align-items: center;
-          display: flex;
-          flex: 1 1 auto;
-          height: 60px;
-          justify-content: center;
-          border-radius: 40px;
-        }
-
-        .sidenav {
-          border-radius: 20px;
-          min-width: 25%;
-          height: 100vh;
-          position: sticky;
-          top: 20px;
-        }
-
-        li {
-          list-style: none;
-          font-size: 1.5rem;
-          margin: 5px 0px;
-        }
         @media screen and (max-width: 642px) {
           .sidenav {
             display: none;
@@ -192,9 +124,6 @@ export default function Home() {
         @media screen and (min-width: 642px) {
           section {
             border-left: solid 1px #828da9;
-          }
-          nav {
-            display: none;
           }
         }
       `}</style>
