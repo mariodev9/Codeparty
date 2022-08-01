@@ -1,7 +1,6 @@
 import React from "react";
 import Code from "../../../components/Code";
 import Sidenav from "../../../components/Sidenav";
-// import { firestore } from "../../../firebase/admin";
 import { useRouter } from "next/router";
 
 export default function CodePage(props) {
@@ -59,9 +58,7 @@ export async function getServerSideProps(context) {
   const { params, res } = context;
   const { id } = params;
 
-  const apiResponse = await fetch(
-    `http://codeparty9.vercel.app/api/codes/${id}`
-  );
+  const apiResponse = await fetch(`http://localhost:3000/api/codes/${id}`);
 
   if (apiResponse.ok) {
     const props = await apiResponse.json();

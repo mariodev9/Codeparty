@@ -1,6 +1,6 @@
 const firebaseAdmin = require("firebase-admin");
 
-const serviceAccount = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY);
+const serviceAccount = require("./firebase-keys.json");
 
 !firebaseAdmin.apps.length
   ? firebaseAdmin.initializeApp({
