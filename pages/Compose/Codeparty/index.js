@@ -92,9 +92,11 @@ export default function Codeparty() {
             setFile(e.target.files[0]);
           }}
         />
-        <label htmlFor="file-input">
-          <p>Icono de foto</p>
-        </label>
+        {!img && (
+          <label htmlFor="file-input">
+            <p>Icono de foto</p>
+          </label>
+        )}
       </form>
       <Nav />
       <style jsx>{`
@@ -106,7 +108,6 @@ export default function Codeparty() {
           display: flex;
           flex-direction: column;
           margin: 15px 5px;
-          height: 90vh;
         }
         .buttons-container {
           margin: 20px 0px;
@@ -138,7 +139,7 @@ export default function Codeparty() {
 
         .code-container {
           padding: 15px;
-          margin: 10px 0px;
+          margin: 40px 0px;
           border: solid 1px white;
           border-radius: 10px;
         }

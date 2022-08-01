@@ -2,13 +2,28 @@ import React from "react";
 import Code from "../../../components/Code";
 import Sidenav from "../../../components/Sidenav";
 import { useRouter } from "next/router";
+import useUser from "../../../hooks/useUser";
+import CodeParty from "../../../components/Icons/Codeparty";
+import { useTheme } from "styled-components";
+import SwitchTheme from "../../../components/SwitchTheme";
+import { Avatar } from "../../../components/Avatar";
 
 export default function CodePage(props) {
   const router = useRouter();
+  const user = useUser();
+  const theme = useTheme();
+
   if (router.isFallback) return <h1>Cargando...</h1>;
 
   return (
     <>
+      <header>
+        <div className="avatar-profile">
+          {user && <Avatar src={user?.avatar} alt={user?.name} width="34px" />}
+        </div>
+        <CodeParty height={50} width={60} color={theme.logo} />
+        <SwitchTheme />
+      </header>
       <div className="main">
         <Sidenav />
         <Code {...props} />
@@ -16,6 +31,19 @@ export default function CodePage(props) {
       <style jsx>{`
         .main {
           display: flex;
+        }
+
+        header {
+          align-items: center;
+          border-bottom: 1px solid #828da9;
+          height: 49px;
+          display: flex;
+          position: sticky;
+          justify-content: space-between;
+          top: 0;
+          width: 100%;
+          padding: 40px;
+          background-color: ${theme.background};
         }
       `}</style>
     </>
