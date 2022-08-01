@@ -58,7 +58,9 @@ export async function getServerSideProps(context) {
   const { params, res } = context;
   const { id } = params;
 
-  const apiResponse = await fetch(`http://localhost:3000/api/codes/${id}`);
+  const apiResponse = await fetch(
+    `https://codeparty9.vercel.app/api/codes/${id}`
+  );
 
   if (apiResponse.ok) {
     const props = await apiResponse.json();
