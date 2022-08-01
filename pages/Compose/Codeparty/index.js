@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { uploadImage } from "../../../firebase/client";
 import { useTheme } from "styled-components";
-import Nav from "../../../components/Nav";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,

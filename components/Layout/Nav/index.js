@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { useTheme } from "styled-components";
-import Search from "../Icons/Search";
-import Write from "../Icons/Write";
-import HomeIcon from "../Icons/Home";
+import Search from "../../Icons/Search";
+import Write from "../../Icons/Write";
+import HomeIcon from "../../Icons/Home";
 export default function Nav() {
   const theme = useTheme();
 

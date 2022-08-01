@@ -1,12 +1,10 @@
 import React from "react";
 import Code from "../../../components/Code";
-import Sidenav from "../../../components/Sidenav";
 import { useRouter } from "next/router";
 import useUser from "../../../hooks/useUser";
-import CodeParty from "../../../components/Icons/Codeparty";
 import { useTheme } from "styled-components";
-import SwitchTheme from "../../../components/SwitchTheme";
-import { Avatar } from "../../../components/Avatar";
+
+import Layout from "../../../components/Layout";
 
 export default function CodePage(props) {
   const router = useRouter();
@@ -17,17 +15,9 @@ export default function CodePage(props) {
 
   return (
     <>
-      <header>
-        <div className="avatar-profile">
-          {user && <Avatar src={user?.avatar} alt={user?.name} width="34px" />}
-        </div>
-        <CodeParty height={50} width={60} color={theme.logo} />
-        <SwitchTheme />
-      </header>
-      <div className="main">
-        <Sidenav />
+      <Layout>
         <Code {...props} />
-      </div>
+      </Layout>
       <style jsx>{`
         .main {
           display: flex;

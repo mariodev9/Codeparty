@@ -1,16 +1,17 @@
 import React from "react";
 
-export default function Sidenav() {
+export default function RightSidenav() {
   return (
     <>
       <div className="sidenav">
-        <ol>
-          <li>Inicio</li>
-          <li>Guardados</li>
-          <li>Perfil</li>
-          <li>Codear</li>
-          <li>Cerrar sesion</li>
-        </ol>
+        <div className="follow">
+          <h3>Que esta pasando</h3>
+          <ol>
+            <li>Midu</li>
+            <li>Goncy</li>
+            <li>Devrock</li>
+          </ol>
+        </div>
       </div>
       <style jsx>{`
         .sidenav {
@@ -20,16 +21,16 @@ export default function Sidenav() {
           top: 20px;
         }
 
-        ol {
+        .follow {
           position: fixed;
         }
-
         li {
           list-style: none;
           font-size: 1.5rem;
           margin: 5px 0px;
+          position: sticky;
         }
-        @media screen and (max-width: 642px) {
+        @media screen and (max-width: 900px) {
           .sidenav {
             display: none;
           }
