@@ -98,7 +98,6 @@ export default function Codeparty() {
           </label>
         )}
       </form>
-      <Nav />
       <style jsx>{`
         .main {
           display: flex;
