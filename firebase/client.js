@@ -30,7 +30,7 @@ import {
 // Config Firebase App
 const firebaseConfig = {
   apiKey: "AIzaSyBcdQyjrnf7GaX0bcaZ5ZY26rzalMGWnAQ",
-  authDomain: "codeparty9.firebaseapp.com",
+  authDomain: "codeparty9.vercel.app",
   projectId: "codeparty9",
   storageBucket: "codeparty9.appspot.com",
   messagingSenderId: "472370053593",
