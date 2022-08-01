@@ -35,7 +35,9 @@ export default function Code({
             </Link>
           </header>
           <p>{content}</p>
-          {img && <img src={img} alt="Description photo" />}
+          <div className="image-container">
+            {img && <img src={img} alt="Description photo" />}
+          </div>
         </section>
       </article>
 
@@ -69,7 +71,9 @@ export default function Code({
           margin-top: 10px;
           width: 100%;
         }
-
+        .image-container {
+          height: auto;
+        }
         a:hover {
           text-decoration: underline;
           color: #828da9;

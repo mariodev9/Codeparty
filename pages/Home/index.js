@@ -13,8 +13,6 @@ import Head from "next/head";
 import Nav from "../../components/Nav";
 import Sidenav from "../../components/Sidenav";
 
-// background-color: ${(props) => props.theme.background};
-
 export default function Home() {
   const [timeline, setTimeline] = useState([]);
   const [session, onSession] = useState(true);
@@ -98,6 +96,7 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           position: sticky;
+          height: 100vh;
         }
 
         .main {

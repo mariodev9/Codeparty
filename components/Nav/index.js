@@ -35,6 +35,7 @@ export default function Nav() {
           position: sticky;
           width: 100%;
         }
+
         .nav-container {
           display: flex;
           width: 100%;
