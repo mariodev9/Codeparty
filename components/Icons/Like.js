@@ -10,10 +10,10 @@ export default function Like({ color }) {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(2 3)"
       >
         <path d="m11.6427217 13.7567397-3.14377399-1.2567396h-4v-7.00000002h2l2.80105246-5.5c.57989907 0 1.07487363.2050252 1.48492373.61507546.4100508.41005058.6150761.90502516.6150755 1.48492425l-.8999994 2.40000029 4.0310597 1.34368655c.9979872.33266243 1.5591794 1.37584131 1.3086286 2.37964122l-.0684258.21997226-1.5536355 4.14302809c-.3878403 1.0342407-1.5406646 1.5582517-2.5749053 1.1704115z" />

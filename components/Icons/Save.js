@@ -11,10 +11,10 @@ export default function Save({ color }) {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(4 4)"
       >
         <path d="m2.5.5h7l3 3v7c0 1.1045695-.8954305 2-2 2h-8c-1.1045695 0-2-.8954305-2-2v-8c0-1.1045695.8954305-2 2-2z" />

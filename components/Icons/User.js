@@ -11,10 +11,10 @@ export default function User({ color }) {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(2 2)"
       >
         <circle cx="8.5" cy="8.5" r="8" />

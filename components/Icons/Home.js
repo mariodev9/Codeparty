@@ -9,10 +9,10 @@ export default function HomeIcon({ color, width, height }) {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(1 1)"
       >
         <path d="m.5 9.5 9-9 9 9" />
