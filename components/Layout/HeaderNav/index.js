@@ -22,6 +22,8 @@ export default function HeaderNav() {
       </header>
       <style jsx>{`
         header {
+          backdrop-filter: blur(4.5px);
+          -webkit-backdrop-filter: blur(4.5px);
           align-items: center;
           border-bottom: 1px solid #828da9;
           height: 49px;
@@ -32,6 +34,12 @@ export default function HeaderNav() {
           width: 100%;
           padding: 40px;
           background-color: ${theme.background};
+        }
+
+        @media screen and (min-width: 642px) {
+          header {
+            background-color: ${theme.BlurBackground};
+          }
         }
       `}</style>
     </>

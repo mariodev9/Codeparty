@@ -3,10 +3,11 @@ import React from "react";
 export default function Save({ color }) {
   return (
     <svg
-      height="21"
+      height="31"
       viewBox="0 0 21 21"
-      width="21"
+      width="31"
       xmlns="http://www.w3.org/2000/svg"
+      strokeWidth="1.2"
     >
       <g
         fill="none"

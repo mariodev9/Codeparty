@@ -13,7 +13,7 @@ export default function Nav() {
         <div className="nav-container">
           <Link href={"/Home"}>
             <a>
-              <HomeIcon color={theme.logo} />
+              <HomeIcon color={theme.logo} width={21} height={21} />
             </a>
           </Link>
           <Link href={"/Home"}>
@@ -51,6 +51,11 @@ export default function Nav() {
           height: 50px;
           justify-content: center;
           border-radius: 40px;
+        }
+        nav a:hover {
+          background: radial-gradient(#0099ff22 15%, transparent 16%);
+          background-size: 180px 180px;
+          background-position: center;
         }
 
         @media screen and (min-width: 642px) {

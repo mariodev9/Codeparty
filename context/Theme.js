@@ -5,17 +5,23 @@ import { ThemeContext } from "./ThemeStore";
 const themes = {
   dark: {
     background: "#100F0F",
+    BlurBackground: "#0a0a0a8a",
     title: "#6495ed",
     text: "#FEFEFE",
-    logo: "#fff",
+    logo: "#34B3F1",
     nav: "#100f0f",
+    secondary: "#191C25",
+    tertiary: "#212530",
   },
   light: {
     background: "#fff",
+    BlurBackground: "rgba(255, 255, 255, 0.25)",
     title: "#ff6347",
     text: "#000",
-    logo: "#082032",
+    logo: "#34B3F1",
     nav: "#fff",
+    secondary: "#E2E4EB",
+    tertiary: "#C4B6B6",
   },
 };
 

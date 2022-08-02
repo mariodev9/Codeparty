@@ -2,6 +2,8 @@ import { Avatar } from "../Avatar";
 import useTimeAgo from "../../hooks/useTimeago";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Like from "../Icons/Like";
+import { useTheme } from "styled-components";
 
 export default function Code({
   id,
@@ -12,6 +14,7 @@ export default function Code({
   createdAt,
   userId,
 }) {
+  const theme = useTheme();
   const timeago = useTimeAgo(createdAt);
   const router = useRouter();
 
@@ -37,6 +40,9 @@ export default function Code({
           <p>{content}</p>
           <div className="image-container">
             {img && <img src={img} alt="Description photo" />}
+          </div>
+          <div className="interactions">
+            <Like color={theme.logo} /> <p>3</p>
           </div>
         </section>
       </article>
@@ -77,6 +83,19 @@ export default function Code({
         a:hover {
           text-decoration: underline;
           color: #828da9;
+        }
+
+        .interactions {
+          display: flex;
+          align-items: center;
+        }
+
+        .interactions > :global(svg) {
+          margin-right: 15px;
+        }
+
+        .interactions p {
+          color: #838da9;
         }
       `}</style>
     </>
