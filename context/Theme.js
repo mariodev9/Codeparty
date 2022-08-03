@@ -12,6 +12,8 @@ const themes = {
     nav: "#100f0f",
     secondary: "#191C25",
     tertiary: "#212530",
+    border: "#303646",
+    grey: "#828DA9",
   },
   light: {
     background: "#fff",
@@ -22,6 +24,8 @@ const themes = {
     nav: "#fff",
     secondary: "#E2E4EB",
     tertiary: "#C4B6B6",
+    border: "#c4c9d6",
+    grey: "#828DA9",
   },
 };
 

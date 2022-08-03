@@ -17,6 +17,13 @@ export default function CodePage(props) {
     <>
       <Layout>
         <Code {...props} />
+        <ol>
+          <li>Comentario1</li>
+          <li>Comentario1</li>
+          <li>Comentario1</li>
+          <li>Comentario1</li>
+          <li></li>
+        </ol>
       </Layout>
       <style jsx>{`
         .main {
@@ -34,6 +41,10 @@ export default function CodePage(props) {
           width: 100%;
           padding: 40px;
           background-color: ${theme.background};
+        }
+
+        ol {
+          list-style: none;
         }
       `}</style>
     </>

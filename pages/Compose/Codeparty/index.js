@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { uploadImage } from "../../../firebase/client";
 import { useTheme } from "styled-components";
+import Photo from "../../../components/Icons/Photo";
+import Back from "../../../components/Icons/Back";
 
 const COMPOSE_STATES = {
   USER_NOT_KNOWN: 0,
@@ -80,7 +82,9 @@ export default function Codeparty() {
           )}
         </div>
         <div className="buttons-container">
-          <div onClick={() => router.replace("/Home")}>Volver</div>
+          <div onClick={() => router.replace("/Home")}>
+            <Back color={theme.logo} />
+          </div>
           <Button disabled={isButtonDisabled}> Share </Button>
         </div>
         <input
@@ -93,7 +97,7 @@ export default function Codeparty() {
         />
         {!img && (
           <label htmlFor="file-input">
-            <p>Icono de foto</p>
+            <Photo color={theme.logo} />
           </label>
         )}
       </form>
@@ -138,7 +142,6 @@ export default function Codeparty() {
         .code-container {
           padding: 15px;
           margin: 40px 0px;
-          border: solid 1px white;
           border-radius: 10px;
         }
 
@@ -150,6 +153,10 @@ export default function Codeparty() {
 
         #file-input {
           display: none;
+        }
+
+        label {
+          cursor: pointer;
         }
 
         @media screen and (max-width: 642px) {
