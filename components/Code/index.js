@@ -76,7 +76,7 @@ export default function Code({
         }
 
         .timeago {
-          color: #828da9;
+          color: ${theme.grey};
           padding-left: 8px;
         }
 
