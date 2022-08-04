@@ -40,7 +40,7 @@ export default function Home() {
         <p>Talk about code.</p>
 
         {/* {dev != null && <Button onClick={handleOut}>Log Out</Button>} */}
-        <div className="asd">
+        <div className="button-container">
           {dev === null && (
             <Button onClick={handleClick}>Login with github</Button>
           )}
@@ -85,7 +85,7 @@ export default function Home() {
             padding-top: 20px;
           }
 
-          .asd {
+          .button-container {
             margin-top: 15px;
             height: 50px;
           }

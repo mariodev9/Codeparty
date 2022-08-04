@@ -1,23 +1,22 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import { Avatar } from "../Avatar";
+import useUser from "../../hooks/useUser";
 
 export default function Follow() {
   const theme = useTheme();
+  const user = useUser();
 
   return (
     <>
       <div className="follow">
         <h3>A quien seguir</h3>
         <div className="user">
-          <Avatar
-            alt="https://espanol.eurosport.com/futbol/camisetas-con-historia-torres-el-hijo-prodigo-tras-el-erasmus-en-liverpool_sto7699131/story.shtml"
-            src="asd"
-            width="49px"
-          />
-
-          <p>Fernando Torres</p>
-          <div>Seguir</div>
+          <div className="user-name">
+            {user && <Avatar src={user?.avatar} alt={user?.name} width="40x" />}
+            <p>Fernando Torres</p>
+          </div>
+          <div className="follow-button">Ver Perfil</div>
         </div>
       </div>
       <style jsx>{`
@@ -31,6 +30,27 @@ export default function Follow() {
           padding: 5px 15px;
           display: flex;
           justify-content: space-between;
+        }
+
+        .user-name {
+          display: flex;
+          align-items: center;
+        }
+
+        .user-name p {
+          margin-left: 10px;
+        }
+
+        .follow-button {
+          background-color: ${theme.logo};
+          color: ${theme.text};
+          text-align: center;
+          padding: 0px 15px;
+          border-radius: 40px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          height: 40px;
         }
 
         h3 {

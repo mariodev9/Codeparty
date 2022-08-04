@@ -4,72 +4,105 @@ import { useTheme } from "styled-components";
 import User from "../../Icons/User";
 import Save from "../../Icons/Save";
 import Close from "../../Icons/Close";
-import Button from "../../Button";
+import Link from "next/link";
+import useUser from "../../../hooks/useUser";
+import Menu from "../../Icons/Menu";
+import { Avatar } from "../../Avatar";
 
 export default function LeftSidenav() {
   const theme = useTheme();
+  const user = useUser();
 
   return (
     <>
       <div className="sidenav">
         <div className="fix-container">
+          <h3>Inicio</h3>
           <ol>
             <li>
-              <HomeIcon color={theme.logo} width={30} height={30} />
-              <p>Inicio</p>
+              <Link href={"/Home"}>
+                <a>
+                  <HomeIcon color={theme.logo} width={30} height={30} />
+                  <p>Inicio</p>
+                </a>
+              </Link>
             </li>
             <li>
-              <Save color={theme.logo} />
-              <p>Guardado</p>
+              <Link href={"/Home"}>
+                <a>
+                  <User color={theme.logo} />
+                  <p>Perfil</p>
+                </a>
+              </Link>
             </li>
             <li>
-              <User color={theme.logo} />
-              <p>Perfil</p>
+              <Link href={"/Home"}>
+                <a>
+                  <Save color={theme.logo} />
+                  <p>Guardado</p>
+                </a>
+              </Link>
             </li>
-            <li>
+
+            {/* <li>
               <Close color={theme.logo} />
               <p>Cerrar Sesion</p>
-            </li>
+            </li> */}
           </ol>
 
           <div className="codear-button">
             <p>Codear</p>
           </div>
+          <li className="options">
+            <div className="avatar-container">
+              {user && <Avatar src={user?.avatar} width="35" />}
+            </div>
+            <p>{user?.name}</p>
+            <Menu color={theme.logo} />
+          </li>
         </div>
       </div>
       <style jsx>{`
         .sidenav {
           min-width: 25%;
-          height: 100vh;
           top: 20px;
+          padding-left: 30px;
         }
         .fix-container {
+          padding-top: 15px;
           position: fixed;
         }
-        ol {
-          padding-top: 20px;
-          margin-left: 15px;
+
+        h3 {
+          padding: 10px;
+          font-weight: 700;
+          font-size: 1.7rem;
         }
 
+        ol {
+          padding-top: 20px;
+        }
         li {
           list-style: none;
           font-size: 1.5rem;
           margin: 10px 0px;
-          display: flex;
           align-items: center;
           border-radius: 50px;
           height: 50px;
-          padding: 10px;
           width: auto;
+          /* este padding afecta el ALINEAMIENTO  */
+          padding: 10px;
         }
-
         li:hover {
           cursor: pointer;
           background-color: ${theme.secondary};
+          transition: all 0.3s;
         }
-
-        li > :global(p) {
+        a > :global(p) {
           margin-left: 15px;
+        }
+        li a {
+          display: flex;
         }
 
         .codear-button {
@@ -79,7 +112,7 @@ export default function LeftSidenav() {
           padding: 10px;
           border-radius: 50px;
           cursor: pointer;
-          margin-top: 25px;
+          margin-top: 65px;
         }
         .codear-button:hover {
           background-color: ${theme.logo};
@@ -87,6 +120,12 @@ export default function LeftSidenav() {
         .codear-button p {
           font-size: 1.2rem;
           color: #fff;
+        }
+
+        .options {
+          display: flex;
+          align-items: center;
+          font-size: 1.3rem;
         }
 
         @media screen and (max-width: 642px) {

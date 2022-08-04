@@ -13,17 +13,13 @@ export default function RightSidenav() {
       </div>
       <style jsx>{`
         .sidenav {
-          min-width: 31%;
-
-          /* top: 10px; */
-
           display: flex;
           flex-direction: column;
+          padding-top: 50px;
         }
 
         .info-container {
           position: fixed;
-          width: 30%;
           padding: 30px 15px;
         }
 

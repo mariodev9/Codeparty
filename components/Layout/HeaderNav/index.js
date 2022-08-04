@@ -25,7 +25,6 @@ export default function HeaderNav() {
           backdrop-filter: blur(4.5px);
           -webkit-backdrop-filter: blur(4.5px);
           align-items: center;
-          border-bottom: 1px solid #828da9;
           height: 49px;
           display: flex;
           position: sticky;
@@ -40,6 +39,12 @@ export default function HeaderNav() {
           header {
             background-color: ${theme.BlurBackground};
           }
+          .avatar-profile {
+            display: none;
+          }
+        }
+
+        @media screen and (max-width: 642px) {
         }
       `}</style>
     </>
