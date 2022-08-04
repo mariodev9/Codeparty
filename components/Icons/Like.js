@@ -8,7 +8,7 @@ export default function Like({ color }) {
         viewBox="0 0 21 21"
         width="25"
         xmlns="http://www.w3.org/2000/svg"
-        strokeWidth="1.5"
+        strokeWidth="1"
       >
         <g
           fill="none"

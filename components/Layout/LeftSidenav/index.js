@@ -4,6 +4,7 @@ import { useTheme } from "styled-components";
 import User from "../../Icons/User";
 import Save from "../../Icons/Save";
 import Close from "../../Icons/Close";
+import Button from "../../Button";
 
 export default function LeftSidenav() {
   const theme = useTheme();
@@ -11,24 +12,30 @@ export default function LeftSidenav() {
   return (
     <>
       <div className="sidenav">
-        <ol>
-          <li>
-            <HomeIcon color={theme.logo} width={30} height={30} />
-            <p>Inicio</p>
-          </li>
-          <li>
-            <Save color={theme.logo} />
-            <p>Guardado</p>
-          </li>
-          <li>
-            <User color={theme.logo} />
-            <p>Perfil</p>
-          </li>
-          <li>
-            <Close color={theme.logo} />
-            <p>Cerrar Sesion</p>
-          </li>
-        </ol>
+        <div className="fix-container">
+          <ol>
+            <li>
+              <HomeIcon color={theme.logo} width={30} height={30} />
+              <p>Inicio</p>
+            </li>
+            <li>
+              <Save color={theme.logo} />
+              <p>Guardado</p>
+            </li>
+            <li>
+              <User color={theme.logo} />
+              <p>Perfil</p>
+            </li>
+            <li>
+              <Close color={theme.logo} />
+              <p>Cerrar Sesion</p>
+            </li>
+          </ol>
+
+          <div className="codear-button">
+            <p>Codear</p>
+          </div>
+        </div>
       </div>
       <style jsx>{`
         .sidenav {
@@ -36,9 +43,10 @@ export default function LeftSidenav() {
           height: 100vh;
           top: 20px;
         }
-
-        ol {
+        .fix-container {
           position: fixed;
+        }
+        ol {
           padding-top: 20px;
           margin-left: 15px;
         }
@@ -62,6 +70,23 @@ export default function LeftSidenav() {
 
         li > :global(p) {
           margin-left: 15px;
+        }
+
+        .codear-button {
+          background-color: ${theme.logo};
+          text-align: center;
+          margin-left: 25px;
+          padding: 10px;
+          border-radius: 50px;
+          cursor: pointer;
+          margin-top: 25px;
+        }
+        .codear-button:hover {
+          background-color: ${theme.logo};
+        }
+        .codear-button p {
+          font-size: 1.2rem;
+          color: #fff;
         }
 
         @media screen and (max-width: 642px) {
