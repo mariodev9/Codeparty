@@ -43,6 +43,12 @@ export default function Layout({ children }) {
           }
         }
 
+        @media screen and (max-width: 950px) {
+          section {
+            width: 70%;
+          }
+        }
+
         @media screen and (max-width: 642px) {
           section {
             width: 100%;

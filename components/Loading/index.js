@@ -19,8 +19,8 @@ export default function Loading() {
           box-sizing: border-box;
           display: block;
           position: absolute;
-          width: 64px;
-          height: 64px;
+          width: 50px;
+          height: 50px;
           margin: 8px;
           border: 8px solid #fff;
           border-radius: 50%;

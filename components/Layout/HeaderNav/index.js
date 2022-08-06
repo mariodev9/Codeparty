@@ -26,8 +26,8 @@ export default function HeaderNav() {
       </header>
       <style jsx>{`
         header {
-          backdrop-filter: blur(4.5px);
-          -webkit-backdrop-filter: blur(4.5px);
+          backdrop-filter: blur(30px);
+          -webkit-backdrop-filter: blur(30px);
           align-items: center;
           height: 49px;
           display: flex;

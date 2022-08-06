@@ -4,13 +4,13 @@ import { ThemeContext } from "./ThemeStore";
 
 const themes = {
   dark: {
-    background: "#100F0F",
+    background: "#0A1931",
     BlurBackground: "#0a0a0a8a",
     title: "#6495ed",
     text: "#FEFEFE",
     logo: "#34B3F1",
     nav: "#100f0f",
-    secondary: "#191C25",
+    secondary: "#06243e",
     tertiary: "#212530",
     border: "#303646",
     grey: "#828DA9",
@@ -20,9 +20,9 @@ const themes = {
     BlurBackground: "rgba(255, 255, 255, 0.25)",
     title: "#ff6347",
     text: "#000",
-    logo: "#34B3F1",
+    logo: "#0078AA",
     nav: "#fff",
-    secondary: "#def4ff",
+    secondary: "#E2E4EB",
     tertiary: "#aee2ff",
     border: "#c4c9d6",
     grey: "#828DA9",

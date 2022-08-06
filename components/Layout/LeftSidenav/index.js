@@ -64,13 +64,13 @@ export default function LeftSidenav() {
       </div>
       <style jsx>{`
         .sidenav {
-          min-width: 25%;
-          top: 20px;
-          padding-left: 30px;
+          width: 25%;
+          padding: 24px 0px;
         }
         .fix-container {
-          padding-top: 15px;
           position: fixed;
+          width: 25%;
+          padding: 0px 10px;
         }
 
         h3 {
@@ -96,7 +96,9 @@ export default function LeftSidenav() {
         li:hover {
           cursor: pointer;
           background-color: ${theme.secondary};
-          transition: all 0.3s;
+          transition: all 0.4s;
+          border-radius: 10px;
+          box-shadow: #001330 0px 4px;
         }
         a > :global(p) {
           margin-left: 15px;
