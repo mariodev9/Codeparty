@@ -49,17 +49,17 @@ export default function LeftSidenav() {
               <p>Cerrar Sesion</p>
             </li> */}
           </ol>
-
           <div className="codear-button">
             <p>Codear</p>
           </div>
-          <li className="options">
-            <div className="avatar-container">
+
+          <div className="options">
+            <div className="asd">
               {user && <Avatar src={user?.avatar} width="35" />}
             </div>
             <p>{user?.name}</p>
             <Menu color={theme.logo} />
-          </li>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -108,7 +108,6 @@ export default function LeftSidenav() {
         .codear-button {
           background-color: ${theme.logo};
           text-align: center;
-          margin-left: 25px;
           padding: 10px;
           border-radius: 50px;
           cursor: pointer;
@@ -123,9 +122,12 @@ export default function LeftSidenav() {
         }
 
         .options {
+          width: 100%;
           display: flex;
+          justify-content: space-between;
           align-items: center;
           font-size: 1.3rem;
+          padding: 35px;
         }
 
         @media screen and (max-width: 642px) {

@@ -5,10 +5,14 @@ import CodeParty from "../../Icons/Codeparty";
 import Button from "../../Button";
 import { useTheme } from "styled-components";
 import useUser from "../../../hooks/useUser";
-
+import { logOut } from "../../../firebase/client";
 export default function HeaderNav() {
   const theme = useTheme();
   const user = useUser();
+
+  const handleOut = () => {
+    logOut();
+  };
 
   return (
     <>
@@ -17,7 +21,7 @@ export default function HeaderNav() {
           {user && <Avatar src={user?.avatar} alt={user?.name} width="34px" />}
         </div>
         <CodeParty height={50} width={60} color={theme.logo} />
-        {/* <Button onClick={handleOut}>Log Out</Button> */}
+        <Button onClick={handleOut}>Log Out</Button>
         <SwitchTheme />
       </header>
       <style jsx>{`

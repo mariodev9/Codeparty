@@ -5,6 +5,7 @@ import CodeParty from "../components/Icons/Codeparty";
 import { loginWithGitHub, sessionChange, logOut } from "../firebase/client";
 import { useRouter } from "next/router";
 import { useTheme } from "styled-components";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [dev, setDev] = useState(undefined);
@@ -39,13 +40,12 @@ export default function Home() {
         </h1>
         <p>Talk about code.</p>
 
-        {/* {dev != null && <Button onClick={handleOut}>Log Out</Button>} */}
         <div className="button-container">
           {dev === null && (
             <Button onClick={handleClick}>Login with github</Button>
           )}
 
-          {dev === undefined && <h2>Loading</h2>}
+          {dev === undefined && <Loading />}
         </div>
       </section>
       <style jsx>
@@ -64,7 +64,7 @@ export default function Home() {
             margin-top: 35px;
           }
           span {
-            color: #1f76b8;
+            color: ${theme.logo};
           }
 
           p {
@@ -86,7 +86,7 @@ export default function Home() {
           }
 
           .button-container {
-            margin-top: 15px;
+            margin-top: 65px;
             height: 50px;
           }
         `}
